@@ -14,7 +14,6 @@ function start(quiz){
         const response = ask(question);
         check(response,answer);
     }
-    // end of main game loop
 
     gameOver();
 
