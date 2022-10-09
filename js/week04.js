@@ -1,4 +1,16 @@
-alert('Welcome to Quiz Ninja!');
+// View Object
+const view = {
+    score: document.querySelector('#score strong'),
+    question: document.getElementById('question'),
+    result: document.getElementById('result'),
+    info: document.getElementById('info'),
+    render(target,content,attributes) {
+        for(const key in attributes) {
+            target.setAttribute(key, attributes[key]);
+        }
+        target.innerHTML = content;
+    }
+};
 
 const quiz = [
     ["What is Superman's real name?","Clark Kent"],
@@ -6,33 +18,43 @@ const quiz = [
     ["What is Batman's real name?","Bruce Wayne"]
 ];
 
-function start(quiz){
-    let score = 0;
+const game = {
+    start(quiz) {
 
-    // main game loop
-    for(const [question,answer] of quiz){
-        const response = ask(question);
-        check(response,answer);
-    }
+        this.questions = [...quiz];
+        this.score = 0;
 
-    gameOver();
+        for(const question of this.questions){
+        this.question = question;
+        this.ask();
+        }
 
-    // function declarations
-    function ask(question){
-        return prompt(question);
-    }
+        this.gameOver();
+    },
 
-    function check(response,answer){
+    ask() {
+        const question = `What is ${this.question.name}'s real name?`;
+        view.render(view.question,question);
+        const response =  prompt(question);
+        this.check(response);
+    },
+
+    check(response) {
+        const answer = this.question.realName;
         if(response === answer){
+        view.render(view.result,'Correct!',{'class':'correct'});
         alert('Correct!');
-        score++;
+        this.score++;
+        view.render(view.score,this.score);
         } else {
+        view.render(view.result,`Wrong! The correct answer was ${answer}`,{'class':'wrong'});
         alert(`Wrong! The correct answer was ${answer}`);
         }
-    }
+    },
 
-    function gameOver(){
-        alert(`Game Over, you scored ${score} point${score !== 1 ? 's' : ''}`);
+    gameOver() {
+        view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
     }
 }
+
 start(quiz);
