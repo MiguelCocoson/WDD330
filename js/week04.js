@@ -18,20 +18,20 @@ const view = {
         target.innerHTML = content;
     },
 
-    show(element){
+    show(element) {
         element.style.display = 'block';
     },
 
-    hide(element){
+    hide(element) {
         element.style.display = 'none';
     },
 
-    resetForm(){
+    resetForm() {
         this.response.answer.value = '';
         this.response.answer.focus();
     },
 
-    setup(){
+    setup() {
         this.show(this.question);
         this.show(this.response);
         this.show(this.result);
@@ -42,7 +42,7 @@ const view = {
         this.resetForm();
     },
 
-    teardown(){
+    teardown() {
         this.hide(this.question);
         this.hide(this.response);
         this.show(this.start);
@@ -50,7 +50,7 @@ const view = {
 };
 
 const game = {
-    start(quiz){
+    start(quiz) {
         this.score = 0;
         this.questions = [...quiz];
         view.setup();
@@ -67,7 +67,7 @@ const game = {
         }
     },
 
-    check(event){
+    check(event) {
         event.preventDefault();
         const response = view.response.answer.value;
         const answer = this.question.realName;
@@ -82,7 +82,7 @@ const game = {
         this.ask();
     },
 
-    gameOver(){
+    gameOver() {
         view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
         view.teardown();
     }
