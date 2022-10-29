@@ -18,7 +18,6 @@ function shuffle(array) {
   }
 }
 
-// View Object
 const view = {
   score: document.querySelector('#score strong'),
   question: document.querySelector('#question'),
