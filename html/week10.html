@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>WDD330 | Week 10</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Assignment portal for Miguel Marin in WDD 230: Web Frontend Development at Brigham Young University - Idaho" />
+      <link rel="stylesheet" href="/wdd330/css/index.css" />
+   </head>
+   <body>
+      <header>
+         <h1>Miguel Marin</h1>
+      </header>
+      <main>
+         <h2>Week 9 Notes</h2>
+         <h3>MDN: Validating forms</h3>
+         <ul>
+            <li>Built-in form validation:</li>
+            <li>required: Specifies whether a form field needs to be filled in before the form can be submitted.</li>
+            <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings).</li>
+            <li>min and max: Specifies the minimum and maximum values of numerical input types.</li>
+            <li>type: Specifies whether the data needs to be a number, an email address, or some other specific preset type.</li>
+            <li>pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</li>
+            <li>Constraint Validation API:</li>
+            <li>checkValidity(): Returns true if the element's value has no validity problems; false otherwise. If the element is invalid, this method also fires an invalid event on the element.</li>
+            <li>reportValidity(): Reports invalid field(s) using events.</li>
+            <li>setCustomValidity(message): Adds a custom error message to the element.</li>
+         </ul>
+         <h3>MDN: Using Fetch</h3>
+         <ul>
+            <li>"&lt;input type="file" /&gt;" HTML to upload a file.</li>
+            <li>"&lt;input type="file" multiple /&gt;" HTML to upload multiple files.</li>
+            <li>"FormData()" can also be used for uploading files.</li>
+            <li>A fetch() promise will reject with a TypeError when a network error is encountered or CORS is misconfigured on the server-side, however a 404 does not constitute a network error.</li>
+            <li>Request() accepts exactly the same parameters as the fetch() method.</li>
+            <li>Headers interface allows you to create your own headers object via the Headers() constructor.</li>
+            <li>Response objects:</li>
+            <li>"Response.status" an integer (default value 200) containing the response status code.</li>
+            <li>"Response.statusText" a string (default value ""), which corresponds to the HTTP status code message.</li>
+            <li>"Response.ok" a shorthand for checking that status is in the range 200-299 inclusive, this returns a boolean value.</li>
+         </ul>
+      </main>
+      <footer>
+         <p id="copyright">&copy;<span id="year"></span> | Miguel Marin</p>
+      </footer>
+      <script src="/wdd330/js/javascript.js"></script>
+   </body>
+</html>
